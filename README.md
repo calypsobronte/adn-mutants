@@ -1,7 +1,7 @@
 ## ADN mutante
 
 ### Link de la aplicacion
-<https://adn-mutant.herokuapp.com/api/index>
+<https://adn-mutants.herokuapp.com/api/index>
 
 ### Prerequisitos
 
