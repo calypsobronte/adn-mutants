@@ -1,0 +1,49 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Aplicacion para dectectar si un humano es mutante",
+  "main": "serve.js",
+  "scripts": {
+    "start": "NODE_ENV=production node -r esm serve.js",
+    "dev": "NODE_ENV=test nodemon  --experimental-modules serve.js --exec  babel-node",
+    "test": "NODE_ENV=test NODE_OPTIONS=--experimental-modules jest --verbose --silent",
+    "test:verbose": "NODE_ENV=test NODE_OPTIONS=--experimental-modules jest --verbose",
+    "test:detectOpenHandles": "NODE_ENV=test NODE_OPTIONS=--experimental-modules jest --verbose --silent --runInBand --detectOpenHandles --forceExit",
+    "test:watch": "yarn test -- --watch",
+    "test:coverage": "jest --collect-coverage",
+    "test:coverage:nyc": "nyc yarn test && nyc report --reporter=text-lcov | coveralls",
+    "jest:coverage:nyc": "nyc --clean jest --coverage",
+    "jest": "jest --coverage --env=node --runInBand",
+    "jest:nyc": "nyc jest --env=node --runInBand",
+    "jest:all": "nyc --all jest --env=node",
+    "jest:report": "nyc report --reporter=html --report-dir=nyc_coverage",
+    "test:codecov": "nyc --reporter=html --reporter=text jest"
+
+  },
+  "repository": "https://github.com/calypsobronte/adn-mutants.git",
+  "author": "Lina Maria Montaño Ramirez - @calypsobronte",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.16.7",
+    "@babel/core": "^7.16.7",
+    "@babel/node": "^7.16.7",
+    "@babel/preset-env": "^7.16.7",
+    "jest": "^27.4.7",
+    "nodemon": "^2.0.15",
+    "supertest": "^6.1.6",
+    "ava": "^2.3.0",
+    "coveralls": "^3.0.6",
+    "nyc": "^14.1.1"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "esm": "^3.2.25",
+    "express": "^4.17.2",
+    "mongoose": "^6.1.5",
+    "morgan": "^1.10.0"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  }
+}
